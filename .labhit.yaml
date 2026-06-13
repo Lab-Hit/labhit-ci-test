@@ -1,0 +1,6 @@
+engine: "1"
+pipeline:
+  name: hello
+stages:
+  greet:
+    run: echo "Hello from LabHit CI"
