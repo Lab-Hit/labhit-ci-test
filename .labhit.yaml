@@ -1,9 +1,8 @@
 engine: "1"
-triggers:
-  push:
-    branches: [main]
 pipeline:
   name: hello
 stages:
   greet:
-    run: echo "Hello from LabHit CI"
+    run: |
+      echo "Hello from LabHit CI"
+      test "$MY_SECRET" = "hello123" && echo "secret present (redacted)"
