@@ -1,9 +1,9 @@
 engine: "1"
-# item 9 regression check
+# security-hardening regression
 pipeline:
   name: hello
 stages:
   greet:
     run: |
       echo "Hello from LabHit CI"
-      test "$MY_SECRET" = "hello123" && echo "secret present (value redacted in logs)"
+      test "$MY_SECRET" = "hello123" && echo "secret present (redacted)"
