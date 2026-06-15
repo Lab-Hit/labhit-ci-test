@@ -4,5 +4,11 @@ pipeline:
 stages:
   greet:
     run: |
-      echo "Hello from LabHit CI"
-      test "$MY_SECRET" = "hello123" && echo "secret injected OK" || { echo "SECRET MISSING"; exit 1; }
+      echo "Hello from LabHit CI (process)"
+      test "$MY_SECRET" = "hello123" && echo "process secret OK" || { echo "MISSING(process)"; exit 1; }
+  isolated:
+    sandbox:
+      image: alpine:3
+    run: |
+      echo "Hello from a container"
+      test "$MY_SECRET" = "hello123" && echo "container secret OK" || { echo "MISSING(container)"; exit 1; }
