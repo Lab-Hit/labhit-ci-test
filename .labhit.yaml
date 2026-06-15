@@ -3,4 +3,6 @@ pipeline:
   name: hello
 stages:
   greet:
-    run: echo "Hello from LabHit CI"
+    run: |
+      echo "Hello from LabHit CI"
+      test "$MY_SECRET" = "hello123" && echo "secret injected OK" || { echo "SECRET MISSING"; exit 1; }
