@@ -4,6 +4,6 @@ pipeline:
 stages:
   greet:
     run: |
-      echo "secret length is ${#MY_SECRET}"
-      echo "raw would be: $MY_SECRET"
-      test "$MY_SECRET" = "hello123" && echo PIPELINE_OK
+      echo "interp: [${{ env.DATABASE_URL }}]"
+      echo "shell: [$DATABASE_URL]"
+      echo done
