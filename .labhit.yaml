@@ -4,6 +4,5 @@ pipeline:
 stages:
   greet:
     run: |
-      echo "interp: [${{ env.DATABASE_URL }}]"
-      echo "shell: [$DATABASE_URL]"
-      echo done
+      echo "Hello from LabHit CI"
+      test "$MY_SECRET" = "hello123" && echo "secret present (value redacted in logs)"
