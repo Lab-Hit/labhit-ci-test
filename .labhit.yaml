@@ -3,7 +3,6 @@ pipeline:
   name: hello
 stages:
   greet:
-    run: echo "Hello from LabHit CI"
-  slow:
-    timeout: "3s"
-    run: sleep 30
+    run: |
+      echo "Hello from LabHit CI"
+      test "$MY_SECRET" = "hello123" && echo "secret present (redacted)"
